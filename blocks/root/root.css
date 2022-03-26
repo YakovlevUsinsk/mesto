@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(../../fonts/Inter-Regular.woff2) format('woff2'),
+    url(../../fonts/Inter-Regular.woff) format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter Black';
+    src: url(../../fonts/Inter-Black.woff2) format('woff2'),
+    url(../../fonts/Inter-Black.woff) format('woff');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Inter Medium';
+    src: url(../../fonts/Inter-Medium.woff2) format('woff2'),
+    url(../../fonts/Inter-Regular.woff) format('woff');
+    font-weight: 500;
+}
+
+.root {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    background-color: #000000;
+    max-width: 1280px;
+    width: 100%;
+}

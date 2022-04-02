@@ -1,0 +1,16 @@
+.profile__info-interest {
+    grid-column-start: -1;
+    grid-column-end: -3;
+    margin: 0;
+    align-self: start;
+    line-height: 22px;
+    letter-spacing: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-interest {
+        grid-template-columns: -2;
+        font-size: 14px;
+        line-height: 0;
+    }
+}

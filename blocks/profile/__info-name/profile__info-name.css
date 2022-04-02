@@ -1,0 +1,19 @@
+.profile__info-name {
+    font-family: 'Inter Medium';
+    font-size: 42px;
+    line-height: 48px;
+    margin: 0;
+    align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-name {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin: 26px auto 14px;
+        justify-items: center;
+        font-size: 27px;
+        padding-left: 28px;
+        line-height: 0;
+    }
+}/*TODO разрешение на 768*/

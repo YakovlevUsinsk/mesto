@@ -12,17 +12,17 @@
         <img class="header__logo" src="picture/header/logo.svg" alt="логотип">
     </header>
 
-    <section class="profile">
-        <aside class="profile__info">
+    <main class="profile">
+        <section class="profile__info">
             <img src="picture/profile/avatar.jpg" alt="" class="profile__info-avatar"><!--TODO сделать смену атрибута альт при смене имени-->
             <h1 class="profile__info-name">Жак-Ив Кусто</h1>
             <button class="profile__btn-edit"></button>
             <p class="profile__info-interest">Исследователь океана</p>
-        </aside>
+        </section>
         <button class="profile__btn-add"></button>
-    </section>
-
-    <ul class="elements root__elements">
+    </main>
+    <aside class="gallery root__gallery">
+    <ul class="elements">
         <li class="elements__cards">
             <img src="picture/elements/elements__img1.jpg" alt="" class="elements__img">
             <p class="elements__name">Карачаевск</p>
@@ -54,8 +54,18 @@
             <button class="elements__btn"></button>
         </li>
     </ul>
+    </aside>
     <footer class="footer">
         <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
+    <form class="popup popup_display-none">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <fieldset class="popup__form">
+            <input class="popup__input-text" type="text" placeholder="Жак-Ив Кусто" name="user-name">
+            <input class="popup__input-text" type="text" placeholder="Исследователь океана" name="user-interest">
+        </fieldset>
+        <button class="popup__btn-save" type="button">Сохранить</button>
+        <button class="popup__btn-close" type="button"></button>
+    </form>
 </body>
 </html>

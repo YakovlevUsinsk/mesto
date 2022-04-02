@@ -1,9 +1,9 @@
-.root__elements {
+.root__gallery {
     margin: 50px auto 66px;
 }
 
 @media screen and (max-width: 768px) {
-    .root__elements {
+    .root__gallery {
         margin: 36px auto 48px;
     }
 }

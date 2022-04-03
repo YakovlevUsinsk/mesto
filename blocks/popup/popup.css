@@ -1,18 +1,8 @@
 .popup {
-    position: absolute;
-    top: 195px;
-    left: 50% - 430px;
-    max-width: 430px;
-    width: 100%;
-    min-height: 330px;
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-
-@media screen and (max-width: 768px) {
-    .popup {
-    top: 123px;
-    max-width: 282px;
-    min-height: 322px;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }

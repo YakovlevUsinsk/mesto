@@ -30,6 +30,6 @@
     line-height: 1.21;
 }
 
-.popup__input-text:first-child {
+.popup__input-text:first-of-type {
     margin-bottom: 30px;
 }

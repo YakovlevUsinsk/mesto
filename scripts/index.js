@@ -13,7 +13,7 @@ clsPopup.addEventListener ('click', toogleForm);
 btnEdit.addEventListener ('click', toogleForm);
 
 let formElement = popupBlock.querySelector ('.popup__form');//форма в DOM
-let dataField =formElement.querySelectorAll ('.popup__form_field');// массив значения value
+let dataField =formElement.querySelectorAll ('.popup__field');// массив значения value
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.

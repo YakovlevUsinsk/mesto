@@ -12,16 +12,15 @@ function toogleForm () {//фунция переключения класса
 clsPopup.addEventListener ('click', toogleForm);
 btnEdit.addEventListener ('click', toogleForm);
 
-let formElement = popupBlock.querySelector ('.popup__content');//форма в DOM
-let nameInput = formElement.querySelector ('#name-user');//выделение строки ввода имени
-let jobInput = formElement.querySelector ('#name-interest');//выделение строки ввода хобби
+let formElement = popupBlock.querySelector ('.popup__form');//форма в DOM
+let dataField =formElement.querySelectorAll ('.popup__form_field');// массив значения value
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
                                                 // О том, как это делать, расскажем позже.
-    profileName.textContent = nameInput.value; //присвоение 
-    profileInterest.textContent = jobInput.value;
+    profileName.textContent = dataField[0].value; //присвоение 
+    profileInterest.textContent = dataField[1].value;
     toogleForm ();
 }
 

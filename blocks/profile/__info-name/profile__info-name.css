@@ -19,7 +19,6 @@
         font-size: 27px;
         padding-left: 28px;
         line-height: 1;
-        margin: 0;
-        max-width: fit-content;
+        max-width: 282px;
     }
 }

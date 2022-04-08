@@ -6,7 +6,7 @@ let popupBlock = document.querySelector ('.popup');//выделение блок
 let clsPopup = popupBlock.querySelector ('.popup__btn-close');//выделение в переменную кнопки close
 
 function toogleForm () {//фунция переключения класса 
-    popupBlock.classList.toggle ('popup_display-active');
+    popupBlock.classList.toggle ('popup_opened');
 }
 
 clsPopup.addEventListener ('click', toogleForm);

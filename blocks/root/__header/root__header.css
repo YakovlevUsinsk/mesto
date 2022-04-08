@@ -1,9 +1,9 @@
 .root__header {
-    margin: 40px auto 45px;
+  margin: 40px auto 45px;
 }
 
 @media screen and (max-width: 480px) {
-    .root__header {
-        margin: 28px auto 42px;
-    }
+  .root__header {
+    margin: 28px auto 42px;
+  }
 }

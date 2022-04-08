@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Mesto</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Mesto</title>
 </head>
 <body class="root">
-    <header class="header root__header">
-        <img class="header__logo" src="images/header/logo.svg" alt="логотип">
-    </header>
+  <header class="header root__header">
+    <img class="header__logo" src="images/header/logo.svg" alt="логотип">
+  </header>
 
-    <main class="profile">
-        <section class="profile__info">
-            <img src="images/profile/avatar.jpg" alt="Жак-Ив Кусто" class="profile__info-avatar">
-            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-            <button class="profile__btn-edit" type="button"></button>
-            <p class="profile__info-interest">Исследователь океана</p>
-        </section>
-        <button class="profile__btn-add" type="button"></button>
-    </main>
-    <section class="gallery root__gallery">
-    <ul class="elements">
-        <li class="elements__cards">
-            <img src="images/elements/elements__img1.jpg" alt="Карачаевск" class="elements__img">
-            <p class="elements__name">Карачаевск</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-        <li class="elements__cards">
-            <img src="images/elements/elements__img2.jpg" alt="Гора Эльбрус" class="elements__img">
-            <p class="elements__name">Гора Эльбрус</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-        <li class="elements__cards">
-            <img src="images/elements/elements__img3.jpg" alt="Домбай" class="elements__img">
-            <p class="elements__name">Домбай</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-        <li class="elements__cards">
-            <img src="images/elements/elements__img2.jpg" alt="Гора Эльбрус" class="elements__img">
-            <p class="elements__name">Гора Эльбрус</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-        <li class="elements__cards">
-            <img src="images/elements/elements__img3.jpg" alt="" class="elements__img">
-            <p class="elements__name">Домбай</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-        <li class="elements__cards">
-            <img src="images/elements/elements__img1.jpg" alt="Карачаево Черкесия" class="elements__img">
-            <p class="elements__name">Карачаево - Черкесия</p>
-            <button class="elements__btn" type="button"></button>
-        </li>
-    </ul>
+  <main class="profile">
+    <section class="profile__info">
+      <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+      <img src="images/profile/avatar.jpg" alt="Жак-Ив Кусто" class="profile__info-avatar">
+      <button class="profile__btn-edit" type="button"></button>
+      <p class="profile__info-interest">Исследователь океана</p>
     </section>
-    <footer class="footer">
-        <p class="footer__text">&copy; 2020 Mesto Russia</p>
-    </footer>
-    <div class="popup">
-        <div class="popup__content">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <form action="#" class="popup__form">
-                <input class="popup__input-text popup__field" type="text" placeholder="Жак-Ив Кусто" name="user-name" value="">
-                <input class="popup__input-text popup__field" type="text" placeholder="Исследователь океана" name="user-interest" value="">
-                <button class="popup__btn-save" type="submit">Сохранить</button>
-            </form>
-            <button class="popup__btn-close" type="button"></button>
-        </div>
+    <button class="profile__btn-add" type="button"></button>
+  </main>
+  <section class="gallery root__gallery">
+    <ul class="elements">
+      <li class="elements__cards">
+        <img src="images/elements/elements__img1.jpg" alt="Карачаевск" class="elements__img">
+        <p class="elements__name">Карачаевск</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+      <li class="elements__cards">
+        <img src="images/elements/elements__img2.jpg" alt="Гора Эльбрус" class="elements__img">
+        <p class="elements__name">Гора Эльбрус</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+      <li class="elements__cards">
+        <img src="images/elements/elements__img3.jpg" alt="Домбай" class="elements__img">
+        <p class="elements__name">Домбай</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+      <li class="elements__cards">
+        <img src="images/elements/elements__img2.jpg" alt="Гора Эльбрус" class="elements__img">
+        <p class="elements__name">Гора Эльбрус</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+      <li class="elements__cards">
+        <img src="images/elements/elements__img3.jpg" alt="" class="elements__img">
+        <p class="elements__name">Домбай</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+      <li class="elements__cards">
+        <img src="images/elements/elements__img1.jpg" alt="Карачаево Черкесия" class="elements__img">
+        <p class="elements__name">Карачаево - Черкесия</p>
+        <button class="elements__btn" type="button"></button>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p class="footer__text">&copy; 2020 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__content">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form action="#" class="popup__form">
+        <input class="popup__input-text popup__input-text_field" type="text" placeholder="Жак-Ив Кусто" name="user-name" value="">
+        <input class="popup__input-text popup__input-text_field" type="text" placeholder="Исследователь океана" name="user-interest" value="">
+        <button class="popup__btn-save" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__btn-close" type="button"></button>
     </div>
-    <script src="scripts/index.js"></script>
+  </div>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>

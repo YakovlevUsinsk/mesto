@@ -1,12 +1,12 @@
 .header__logo {
-    width: 142px;
-    height: 33px;
+  width: 142px;
+  height: 33px;
 }
 
 @media screen and (max-width: 480px) {
-    .header__logo {
-        width: calc(103px + (142 - 103) * ((100vw - 320px)/(480 - 320)));
-        height: calc(24px + (33 - 24) * ((100vw - 320px)/(480 - 320)));
-        margin-left: 27px;
-    }
+  .header__logo {
+    width: calc(103px + (142 - 103) * ((100vw - 320px)/(480 - 320)));
+    height: calc(24px + (33 - 24) * ((100vw - 320px)/(480 - 320)));
+    margin-left: 27px;
+  }
 }

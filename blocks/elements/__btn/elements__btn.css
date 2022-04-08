@@ -1,18 +1,18 @@
 .elements__btn {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    background-image: url(../../../images/elements/heart.svg);
-    background-size: 22px 19px;
-    background-repeat: no-repeat;
-    background-position: top 50% right 20px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 0 0 10px 0;
-    min-width: 44px;
-    padding: 0;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-image: url(../../../images/elements/heart.svg);
+  background-size: 22px 19px;
+  background-repeat: no-repeat;
+  background-position: top 50% right 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0 0 10px 0;
+  min-width: 44px;
+  padding: 0;
 }
 
 .elements__btn:hover {
-    background-image: url(../../../images/elements/heart_opacity.svg);
-    cursor: pointer;
+  background-image: url(../../../images/elements/heart_opacity.svg);
+  cursor: pointer;
 }

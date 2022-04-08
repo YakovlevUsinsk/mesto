@@ -12,16 +12,16 @@
 }
 
 @media screen and (max-width: 768px) {
-    .profile__info-interest {
-        grid-template-columns: -2;
-        font-size: 14px;
-        line-height: 1;
-        margin: 0;
-    }
+  .profile__info-interest {
+    grid-template-columns: -2;
+    font-size: 14px;
+    line-height: 1;
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .profile__info-interest {
-        max-width: 282px;
-    }
+  .profile__info-interest {
+    max-width: 282px;
+  }
 }

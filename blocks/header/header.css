@@ -1,12 +1,12 @@
 .header {
-    max-width: 880px;
-    width: 100%;
-    border-bottom: rgba(84, 84, 84, 0.7) solid 1px;
-    min-height: 74px;
+  max-width: 880px;
+  width: 100%;
+  border-bottom: rgba(84, 84, 84, 0.7) solid 1px;
+  min-height: 74px;
 }
 
 @media screen and (max-width: 480px) {
-    .header {
-        min-height: 56px;
-    }
+  .header {
+    min-height: 56px;
+  }
 }

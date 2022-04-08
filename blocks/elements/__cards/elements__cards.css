@@ -1,10 +1,10 @@
 .elements__cards {
-    display: grid;
-    grid-template-columns: 238px 44px;
-    grid-template-rows: 282px 79px;
-    padding-left: 0;
-    border-radius: 10px;
-    max-width: 282px;
-    width: 100%;
-    position: relative;
+  display: grid;
+  grid-template-columns: 238px 44px;
+  grid-template-rows: 282px 79px;
+  padding-left: 0;
+  border-radius: 10px;
+  max-width: 282px;
+  width: 100%;
+  position: relative;
 }

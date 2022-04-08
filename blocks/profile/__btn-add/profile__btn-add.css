@@ -1,6 +1,5 @@
 .profile__btn-add {
-    max-width: 150px;
-    width: 100%;
+    min-width: 150px;
     min-height: 50px;
     height: 100%;
     border: 2px solid #ffffff;

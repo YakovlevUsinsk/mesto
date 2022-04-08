@@ -3,8 +3,11 @@
     font-size: 42px;
     font-weight: 500;
     line-height: 48px;
-    margin: 0;
+    margin: 0 0 0 30px;
     align-self: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -15,6 +18,8 @@
         justify-items: center;
         font-size: 27px;
         padding-left: 28px;
-        line-height: 0;
+        line-height: 1;
+        margin: 0;
+        max-width: fit-content;
     }
 }

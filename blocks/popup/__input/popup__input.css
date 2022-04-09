@@ -1,4 +1,4 @@
-.popup__input-text {
+.popup__input {
   width: 100%;
   border: none;
   border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
@@ -9,30 +9,30 @@
   line-height: 1.21;
 }
 
-.popup__input-text::placeholder {
+.popup__input::placeholder {
   font-family: 'Inter';
   font-size: 14px;
   line-height: 1.21;
 }
 
-.popup__input-text::-webkit-input-placeholder {
+.popup__input::-webkit-input-placeholder {
   font-family: 'Inter';
   font-size: 14px;
   line-height: 1.21;
 }
 
-.opup__input-text::-moz-placeholder {
+.popup__input::-moz-placeholder {
   font-family: 'Inter';
   font-size: 14px;
   line-height: 1.21;
 }
 
-.popup__input-text::-ms-input-placeholder {
+.popup__input::-ms-input-placeholder {
   font-family: 'Inter';
   font-size: 14px;
   line-height: 1.21;
 }
 
-.popup__input-text:first-of-type {
+.popup__input:first-of-type {
   margin-bottom: 30px;
 }

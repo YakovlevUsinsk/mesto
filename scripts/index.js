@@ -5,11 +5,13 @@ let btnEdit = profileForm.querySelector ('.profile__btn-edit');//выделен�
 let popupBlock = document.querySelector ('.popup');//выделение блока popup в переменную
 let clsPopup = popupBlock.querySelector ('.popup__btn-close');//выделение в переменную кнопки close
 let formElement = popupBlock.querySelector ('.popup__form');//форма в DOM
-let dataField =formElement.querySelectorAll ('.popup__input-text_field');// массив значения value
+let popupValueName =formElement.querySelector ('.popup__input_value_name');// выделение в переменную input name формы popup
+let popupValueInterest =formElement.querySelector ('.popup__input_value_interest');// выделение в переменную input interest формы popup
+
 
 function toogleForm () {//фунция переключения класса
-  dataField[0].placeholder = profileName.textContent;
-  dataField[1].placeholder = profileInterest.textContent;
+  popupValueName.value = profileName.textContent;
+  popupValueInterest.value = profileInterest.textContent;
   popupBlock.classList.toggle ('popup_opened');
 }
 
@@ -17,8 +19,8 @@ function formSubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
   // О том, как это делать, расскажем позже.
-  profileName.textContent = dataField[0].value; //присвоение
-  profileInterest.textContent = dataField[1].value;
+  profileName.textContent = popupValueName.value; //присвоение
+  profileInterest.textContent = popupValueInterest.value;
   toogleForm ();
 }
 

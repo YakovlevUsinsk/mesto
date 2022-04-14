@@ -46,6 +46,7 @@ function getCard (item){
   const nameCard = cardElement.querySelector('.elements__name');
   const imgCard = cardElement.querySelector('.elements__img');
   imgCard.src = item.link;
+  imgCard.alt = item.name;
   nameCard.textContent = item.name;
   containerCards.append(cardElement);
   return cardElement;

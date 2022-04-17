@@ -7,6 +7,8 @@ const initialCards = [
   { name: "Байкал", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" },
 ];
 
+const allbtnClose = document.querySelectorAll(".popup__btn-close");
+
 const popupUser = document.querySelector(".popup_users");
 const popupUserInputName = popupUser.querySelector(".popup__input_value_name");
 const popupUserInputInters = popupUser.querySelector(".popup__input_value_interest");
@@ -21,13 +23,17 @@ const profileBtnAdd = profileBlock.querySelector(".profile__btn-add");
 const profileInfoName = profileBlock.querySelector(".profile__info-name"); //строка имени блока профиля
 const profileInfoInterest = profileBlock.querySelector(".profile__info-interest"); //строка интересов блока профиля
 
-const popupUserBtnSave = popupUser.querySelector(".popup__btn-save");
-const popupCardsBtnSave = popupCards.querySelector(".popup__btn-save");
+const popupImg = document.querySelector(".popup_img");
+const picturePopupImg = popupImg.querySelector(".popup__picture");
+const textPopupImg = popupImg.querySelector(".popup__picture-title");
+
+const popupUserFormSave = popupUser.querySelector(".popup__form");
+const popupCardsFormSave = popupCards.querySelector(".popup__form");
 
 const templateElement = document.querySelector(".template").content;
 const containerCards = document.querySelector(".elements");
 
-function getCard(item) {
+function createCard(item) {
   const cardElement = templateElement.querySelector(".elements__cards").cloneNode(true);
   const nameCard = cardElement.querySelector(".elements__name");
   const imgCard = cardElement.querySelector(".elements__img");
@@ -36,46 +42,24 @@ function getCard(item) {
   imgCard.src = item.link;
   imgCard.alt = item.name;
   nameCard.textContent = item.name;
-  containerCards.prepend(cardElement);
-  imgCard.addEventListener("click", openPopupImg);
-  btnLikeCard.addEventListener("click", (evt) => {
-      toggleBtnLike(evt);
-  });
-  btnDeleteCard.addEventListener("click", (evt) => {
-      deleteCard(evt);
-  });
+  btnLikeCard.addEventListener("click", (evt) => toggleBtnLike(evt));
+  btnDeleteCard.addEventListener("click", (evt) => deleteCard(evt));
+  imgCard.addEventListener("click", () => openImg(item));
   return cardElement;
 }
 
-function toggleBtnLike(evt) {
-  const like = evt.target;
-  like.classList.toggle("elements__btn_active");
-}
-
-function deleteCard(evt) {
-  const deleteElem = evt.target.closest(".elements__cards");
-  deleteElem.remove();
+function getCard(item) {
+  containerCards.prepend(createCard(item));
 }
 
 function render() {
   return initialCards.forEach(getCard);
 }
 
-function saveDataUserProfile(evt) {
-  evt.preventDefault();
-  profileInfoName.textContent = popupUserInputName.value;
-  profileInfoInterest.textContent = popupUserInputInters.value;
-  deletePopup(popupUser);
-}
-
-function openPopupForm(elem) {
-  elem.classList.add("popup_opened");
-  if (elem.classList.contains("popup__user")) {
-      popupUserInputName.value = profileInfoName.textContent;
-      popupUserInputInters.value = profileInfoInterest.textContent;
-  }
-  const popupBtnClose = elem.querySelector(".popup__btn-close");
-  popupBtnClose.addEventListener("click", () => deletePopup(elem));
+function openAddCard() {
+  textPicture.value = "";
+  linkPicture.value = "";
+  openPopup(popupCards);
 }
 
 function saveDataCard(evt) {
@@ -83,40 +67,58 @@ function saveDataCard(evt) {
   const itemCard = {};
   itemCard.name = textPicture.value;
   itemCard.link = linkPicture.value;
-  getCard(itemCard);
-  deletePopup(popupCards);
+  const card = createCard(itemCard);
+  containerCards.prepend(card);
+  closePopup(popupCards);
 }
 
-function deletePopup(elem) {
-  elem.classList.remove("popup_opened");
+function openEditPopupProfile() {
+  popupUserInputName.value = profileInfoName.textContent;
+  popupUserInputInters.value = profileInfoInterest.textContent;
+  openPopup(popupUser);
 }
 
-function closesButton(evt) {
-  const btnClos = evt.target.closes(".popup");
-  return btnClos.classList.contains("popup_users");
+function saveDataProfile(evt) {
+  evt.preventDefault();
+  profileInfoName.textContent = popupUserInputName.value;
+  profileInfoInterest.textContent = popupUserInputInters.value;
+  closePopup(popupUser);
 }
 
-function openPopupImg(evt) {
-  const popupImg = document.querySelector(".popup_img");
-  popupImg.classList.add("popup_opened");
-  const openImg = evt.target;
-  const activeCard = openImg.parentElement;
-  const activeCardBtnClose = popupImg.querySelector(".popup__btn-close");
-  const activePictureTitle = activeCard.querySelector(".elements__name");
-  const popupPicture = popupImg.querySelector(".popup__picture");
-  const popupPictureTitle = popupImg.querySelector(".popup__picture-title");
-  popupPicture.src = openImg.src;
-  popupPicture.alt = activePictureTitle.textContent;
-  popupPictureTitle.textContent = activePictureTitle.textContent;
-  activeCardBtnClose.addEventListener("click", () => deletePopup(popupImg));
+function openImg(item) {
+  picturePopupImg.src = item.link;
+  picturePopupImg.alt = item.name;
+  textPopupImg.textContent = item.name;
+  openPopup(popupImg);
 }
+
+function toggleBtnLike(evt) {
+  evt.target.classList.toggle("elements__btn_active");
+}
+
+function deleteCard(evt) {
+  evt.target.closest(".elements__cards").remove();
+}
+
+function openPopup(evt) {
+  evt.classList.add("popup_opened");
+}
+
+function closePopup(item) {
+  item.classList.remove("popup_opened");
+}
+
+allbtnClose.forEach((item) => {
+  item.addEventListener("click", (evt) => {
+    closePopup(evt.target.closest(".popup"));
+  });
+});
+profileBtnEdit.addEventListener("click", openEditPopupProfile);
+
+profileBtnAdd.addEventListener("click", openAddCard);
+
+popupCardsFormSave.addEventListener("submit", saveDataCard);
+
+popupUserFormSave.addEventListener("submit", saveDataProfile);
 
 render();
-
-profileBtnEdit.addEventListener("click", () => openPopupForm(popupUser));
-
-profileBtnAdd.addEventListener("click", () => openPopupForm(popupCards));
-
-popupCardsBtnSave.addEventListener("click", (evt) => saveDataCard(evt));
-
-popupUserBtnSave.addEventListener("click", (evt) => saveDataUserProfile(evt));

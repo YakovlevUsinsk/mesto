@@ -7,7 +7,7 @@ const initialCards = [
   { name: "Байкал", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" },
 ];
 
-const allbtnClose = document.querySelectorAll(".popup__btn-close");
+const arrCloseButtons = document.querySelectorAll(".popup__btn-close");
 
 const popupUser = document.querySelector(".popup_users");
 const popupUserInputName = popupUser.querySelector(".popup__input_value_name");
@@ -57,8 +57,6 @@ function render() {
 }
 
 function openAddCard() {
-  textPicture.value = "";
-  linkPicture.value = "";
   openPopup(popupCards);
 }
 
@@ -70,6 +68,7 @@ function saveDataCard(evt) {
   const card = createCard(itemCard);
   containerCards.prepend(card);
   closePopup(popupCards);
+  popupCardsFormSave.reset();
 }
 
 function openEditPopupProfile() {
@@ -100,15 +99,15 @@ function deleteCard(evt) {
   evt.target.closest(".elements__cards").remove();
 }
 
-function openPopup(evt) {
-  evt.classList.add("popup_opened");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
 }
 
 function closePopup(item) {
   item.classList.remove("popup_opened");
 }
 
-allbtnClose.forEach((item) => {
+arrCloseButtons.forEach((item) => {
   item.addEventListener("click", (evt) => {
     closePopup(evt.target.closest(".popup"));
   });

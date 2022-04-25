@@ -101,6 +101,16 @@ function deleteCard(evt) {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  popup.addEventListener('click', function (evt){
+    if(evt.target == evt.currentTarget){
+      closePopup(popup);
+    }
+  });
+  document.addEventListener('keydown', function (evt){
+    if(evt.key == "Escape") {
+      closePopup(popup);
+    }
+  })
 }
 
 function closePopup(item) {

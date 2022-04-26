@@ -101,19 +101,27 @@ function deleteCard(evt) {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  popup.addEventListener('click', function (evt){
-    if(evt.target == evt.currentTarget){
-      closePopup(popup);
-    }
-  });
-  document.addEventListener('keydown', function (evt){
-    if(evt.key == "Escape") {
-      closePopup(popup);
-    }
-  })
+  const popupOpened = document.querySelector('.popup_opened');
+  popupOpened.addEventListener('click', closeOverlay);
+  document.addEventListener('keyup', closeEscape);
+}
+
+function closeOverlay (evt) {
+  if(evt.target == evt.currentTarget) {
+    closePopup (evt.target);
+  }
+}
+
+function closeEscape (evt) {
+  if(evt.key == 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
 }
 
 function closePopup(item) {
+  item.removeEventListener('click', closeOverlay);
+  document.removeEventListener('keyup', closeEscape);
   item.classList.remove("popup_opened");
 }
 
@@ -131,3 +139,4 @@ popupCardsFormSave.addEventListener("submit", saveDataCard);
 popupUserFormSave.addEventListener("submit", saveDataProfile);
 
 render();
+

@@ -33,11 +33,27 @@
   <div class="popup popup_users">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form action="#" class="popup__form">
-        <input class="popup__input popup__input_value_name" type="text" placeholder="Жак-Ив Кусто" name="user-name" value="">
-        <span class="input__name-error"></span>
-        <input class="popup__input popup__input_value_interest" type="text" placeholder="Исследователь океана" name="user-interest" value="">
-        <span class="input__interest-error"></span>
+      <form action="#" class="popup__form" novalidate>
+        <input class="popup__input popup__input_value_name"
+        id="name-input"
+        type="text"
+        placeholder="Жак-Ив Кусто"
+        name="user-name"
+        value=""
+        required
+        minlength="2"
+        maxlength="40">
+        <span class="popup__input-error name-input-error"></span>
+        <input class="popup__input popup__input_value_interest"
+        id="interest-input"
+        type="text"
+        placeholder="Исследователь океана"
+        name="user-interest"
+        value=""
+        required
+        minlength="2"
+        maxlength="200">
+        <span class="popup__input-error interest-input-error"></span>
         <button class="popup__btn-save" type="submit">Сохранить</button>
       </form>
       <button class="popup__btn-close" type="button"></button>
@@ -47,11 +63,25 @@
   <div class="popup popup_cards"> <!--Popup форма добавления карточек-->
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
-      <form action="#" class="popup__form">
-        <input class="popup__input popup__input_value_card-name" type="text" placeholder="Название" name="card-name" value="">
-        <span class="input__card-name-error "></span>
-        <input class="popup__input popup__input_value_link-place" type="text" placeholder="Ссылка на картинку" name="link-place" value="">
-        <span class="input__link-error"></span>
+      <form action="#" class="popup__form" novalidate>
+        <input class="popup__input popup__input_value_card-name"
+        id="card-name"
+        type="text"
+        placeholder="Название"
+        name="card-name"
+        value=""
+        required
+        minlength="2"
+        maxlength="30">
+        <span class="popup__input-error card-name-error"></span>
+        <input class="popup__input popup__input_value_link-place"
+        id="link-place"
+        type="url"
+        placeholder="Ссылка на картинку"
+        name="link-place"
+        value=""
+        required>
+        <span class="popup__input-error link-place-error"></span>
         <button class="popup__btn-save" type="submit">Создать</button>
       </form>
       <button class="popup__btn-close" type="button"></button>

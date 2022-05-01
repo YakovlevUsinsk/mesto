@@ -55,15 +55,12 @@ function getCard(item) {
 function render() {
   return initialCards.forEach(getCard);
 }
-const btnDisabled = function (form, obj) {
-  const btnPopupCard = form.querySelector(obj.submitButtonSelector);
-  btnPopupCard.classList.add(obj.inactiveButtonClass);
-  btnPopupCard.setAttribute('disabled', true);
-}
 
 function openAddCard() {
   openPopup(popupCards);
-  btnDisabled (popupCards, config);
+  const inputList = Array.from(popupCards.querySelectorAll(config.inputSelector));
+  const buttonElement = popupCards.querySelector(config.submitButtonSelector);
+  toogleButtonState (inputList, buttonElement, config);
 }
 
 function saveDataCard(evt) {
@@ -145,4 +142,3 @@ popupCardsFormSave.addEventListener("submit", saveDataCard);
 popupUserFormSave.addEventListener("submit", saveDataProfile);
 
 render();
-

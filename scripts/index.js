@@ -1,4 +1,4 @@
-import { Card } from "./card.js";
+import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
 export const initialCards = [
@@ -40,9 +40,8 @@ const containerCards = document.querySelector(".elements");
 
 export function openPopup(popup) {
     popup.classList.add("popup_opened");
-    const popupOpened = document.querySelector(".popup_opened");
-    popupOpened.addEventListener("click", closeOverlay);
-    document.addEventListener("keyup", closeEscape);
+    popup.addEventListener("click", closeOverlay);
+    document.addEventListener("keyup", handleEscape);
 }
 
 function closeOverlay(evt) {
@@ -51,7 +50,7 @@ function closeOverlay(evt) {
     }
 }
 
-function closeEscape(evt) {
+function handleEscape(evt) {
     if (evt.key == "Escape") {
         const activePopup = document.querySelector(".popup_opened");
         closePopup(activePopup);
@@ -60,8 +59,12 @@ function closeEscape(evt) {
 
 function closePopup(item) {
     item.removeEventListener("click", closeOverlay);
-    document.removeEventListener("keyup", closeEscape);
+    document.removeEventListener("keyup", handleEscape);
     item.classList.remove("popup_opened");
+}
+
+function createCard (obj) {
+  return new Card (obj, ".template").generadeCards();
 }
 
 arrCloseButtons.forEach((item) => {
@@ -71,15 +74,14 @@ arrCloseButtons.forEach((item) => {
 });
 
 initialCards.forEach((item) => {
-    const card = new Card(item, ".template");
-    const cardElement = card.generadeCards();
-    document.querySelector(".elements").prepend(cardElement);
+    const cardElement = createCard(item);
+    containerCards.prepend(cardElement);
 });
 
 function openEditPopupProfile() {
     popupUserInputName.value = profileInfoName.textContent;
     popupUserInputInters.value = profileInfoInterest.textContent;
-    editFormValidator.disableButton();
+    editFormValidator.resetValidation();
     openPopup(popupUser);
 }
 
@@ -92,9 +94,7 @@ function saveDataProfile(evt) {
 
 function openAddCard() {
     openPopup(popupCards);
-    const inputList = Array.from(popupCards.querySelectorAll(config.inputSelector));
-    const buttonElement = popupCards.querySelector(config.submitButtonSelector);
-    cardFormValidator.disableButton();
+    cardFormValidator.resetValidation();
 }
 
 function saveDataCard(evt) {
@@ -102,8 +102,8 @@ function saveDataCard(evt) {
     const cardItem = {};
     cardItem.name = textPicture.value;
     cardItem.link = linkPicture.value;
-    const card = new Card(cardItem, ".template");
-    containerCards.prepend(card.generadeCards());
+    const card = createCard(cardItem);
+    containerCards.prepend(card);
     closePopup(popupCards);
     popupCardsFormSave.reset();
 }

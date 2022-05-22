@@ -20,7 +20,7 @@ export class FormValidator {
       });
   }
 
-  disableButton() {
+  resetValidation() {
       this._inputs.forEach((item) => {
           this._hideInputError(item);
       });

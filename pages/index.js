@@ -1,23 +1,11 @@
 import { Card } from "../scripts/Card.js";
 import { FormValidator } from "../scripts/FormValidator.js";
+import {initialCards, config} from "../utils/constants.js";
+import Section from '../components/Section.js';
+import Card from "../components/Сard.js";
 
-export const initialCards = [
-    { name: "Архыз", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" },
-    { name: "Челябинская область", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" },
-    { name: "Иваново", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg" },
-    { name: "Камчатка", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" },
-    { name: "Холмогорский район", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" },
-    { name: "Байкал", link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" },
-];
 
-const config = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__btn-save",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible",
-};
+
 
 const arrCloseButtons = document.querySelectorAll(".popup__btn-close");
 
@@ -119,3 +107,8 @@ cardFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, popupUserFormSave);
 editFormValidator.enableValidation();
+
+ const sectionExp = new Section ({items: initialCards, renderer: (carditem) => {console.log('erfe')}},
+ containerCards
+ )
+sectionExp.renderItems();

@@ -4,18 +4,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
   <title>Mesto</title>
 </head>
 <body class="root">
   <header class="header root__header">
-    <img class="header__logo" src="images/header/logo.svg" alt="логотип">
+    <img class="header__logo" src="<%=require('./images/header/logo.svg')%>" alt="логотип">
   </header>
 
   <main class="profile">
     <section class="profile__info">
       <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-      <img src="images/profile/avatar.jpg" alt="Жак-Ив Кусто" class="profile__info-avatar">
+      <img src="<%=require('./images/profile/avatar.jpg')%>" alt="Жак-Ив Кусто" class="profile__info-avatar">
       <button class="profile__btn-edit" type="button"></button>
       <p class="profile__info-interest">Исследователь океана</p>
     </section>
@@ -104,8 +103,5 @@
       <button class="elements__btn-delete" type="button"></button>
     </li>
   </template>
-
-  <script type="module" src="./pages/index.js"></script>
-
 </body>
 </html>

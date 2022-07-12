@@ -25,12 +25,6 @@ export default class Card {
     this._setEventListeners();
     return this._element;
   }
-  _openImg() {
-    picturePopupImg.src = this._link;
-    picturePopupImg.alt = this._name;
-    textPopupImg.textContent = this._name;
-    openPopup(popupImg);
-  }
 
   _toggleBtnLike() {
     this._elementBtnLike.classList.toggle("elements__btn_active");

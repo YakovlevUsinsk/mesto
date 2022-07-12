@@ -16,20 +16,20 @@ editFormValidator.enableValidation();
 const popupWithImage = new PopupWithImage(".popup_img");
 popupWithImage.setEventListeners();
 
+function cardCreate (item) {
+  const card = new Card ({data: item, handleCardClick: () => {
+    popupWithImage.open(item);
+  }}, '.template');
+  const cardElement = card.generadeCards();
+  return cardElement
+}
+
+
 const cardArr = new Section(
   {
     items: initialCards,
     renderer: (element) => {
-      const card = new Card(
-        {
-          data: element,
-          handleCardClick: () => {
-            popupWithImage.open(element);
-          },
-        },
-        ".template"
-      );
-      const cardElement = card.generadeCards();
+      const cardElement = cardCreate(element);
       cardArr.addItem(cardElement);
     },
   },
@@ -50,8 +50,9 @@ const popupUserInfo = new PopupWithForm(
 );
 
 profileBtnEdit.addEventListener("click", () => {
-  popupUsLerInputName.value = userInfo.getUserInfo()["user-name"];
-  popupUserInputInters.value = userInfo.getUserInfo()["user-interest"];
+  const{"user-name": name, "user-interest": job} = userInfo.getUserInfo();
+  popupUsLerInputName.value = name;
+  popupUserInputInters.value = job;
   popupUserInfo.open();
 });
 
@@ -60,16 +61,7 @@ const popupEditCard = new PopupWithForm(
     popupSelector: ".popup_cards",
     handleFormSubmit: (item) => {
       const data = { name: item["card-name"], link: item["link-place"] };
-      const card = new Card(
-        {
-          data,
-          handleCardClick: () => {
-            popupWithImage.open(data);
-          },
-        },
-        ".template"
-      );
-      const cardElement = card.generadeCards();
+      const cardElement = cardCreate(data);
       cardArr.addItem(cardElement);
     },
   },

@@ -43,11 +43,13 @@ const popupUserInfo = new PopupWithForm(
     popupSelector: ".popup_users",
     handleFormSubmit: (item) => {
       userInfo.setUserInfo(item);
-      popupUserInfo.setEventListeners();
-    },
+    }
   },
   config
-);
+  );
+
+  popupUserInfo.setEventListeners();
+
 
 profileBtnEdit.addEventListener("click", () => {
   const{"user-name": name, "user-interest": job} = userInfo.getUserInfo();
@@ -67,6 +69,8 @@ const popupEditCard = new PopupWithForm(
   },
   config
 );
+
+popupEditCard.setEventListeners();
 
 profileBtnAdd.addEventListener("click", () => {
   cardFormValidator.resetValidation();
